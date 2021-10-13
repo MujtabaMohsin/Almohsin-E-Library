@@ -197,11 +197,11 @@ public class HomeController implements Initializable {
 		if (db_directory.equals("no DB") || !initializeDB.checkDBexist(db_directory)) {
 
 			isThereDB = false;
-			filter_box.getItems().addAll("ÇÓã ÇáßÊÇÈ", "ÇÓã ÇáãÄáİ", "ÊÍŞíŞ/ÅÚÏÇÏ", "ãÕÏÑ ÇáßÊÇÈ");
+			filter_box.getItems().addAll("Ø§Ø³Ù… Ø§Ù„ÙƒØªØ§Ø¨", "Ø§Ø³Ù… Ø§Ù„Ù…Ø¤Ù„Ù", "Ø§Ø³Ù… Ø§Ù„Ø¨Ø§Ø­Ø«", "Ø§Ø³Ù… Ø§Ù„Ù…ØµØ¯Ø±");
 			filter_box.getSelectionModel().selectFirst();
 			back_btn.setVisible(false);
-			rd_cards.setUserData("ÈØÇŞÇÊ");
-			rd_table.setUserData("ÌÏæá");
+			rd_cards.setUserData("Ø¨Ø­Ø«");
+			rd_table.setUserData("ÃŒÃÃ¦Ã¡");
 
 		}
 
@@ -210,10 +210,10 @@ public class HomeController implements Initializable {
 			db_directory = initializeDB.readDBFile();
 			select_db_text.setText(db_directory);
 			back_btn.setVisible(false);
-			filter_box.getItems().addAll("ÇÓã ÇáßÊÇÈ", "ÇÓã ÇáãÄáİ", "ÊÍŞíŞ/ÅÚÏÇÏ", "ãÕÏÑ ÇáßÊÇÈ");
+			filter_box.getItems().addAll("Ø§Ø³Ù… Ø§Ù„ÙƒØªØ§Ø¨", "Ø§Ø³Ù… Ø§Ù„Ù…Ø¤Ù„Ù", "Ø§Ø³Ù… Ø§Ù„Ø¨Ø§Ø­Ø«", "Ø§Ø³Ù… Ø§Ù„Ù…ØµØ¯Ø±");
 			filter_box.getSelectionModel().selectFirst();
-			rd_cards.setUserData("ÈØÇŞÇÊ");
-			rd_table.setUserData("ÌÏæá");
+			rd_cards.setUserData("Ø¨Ø­Ø«");
+			rd_table.setUserData("ÃŒÃÃ¦Ã¡");
 
 			if (!isdbError) {
 				categories_data = RetrieveData.getCategoriesDB();
@@ -245,7 +245,7 @@ public class HomeController implements Initializable {
 
 			Mybooks_data = RetrieveData.getMyBooksDB();
 
-			if (current_showType.equals("ÈØÇŞÇÊ")) {
+			if (current_showType.equals("Ø¨Ø­Ø«")) {
 				updateBackList("mybooks", null, -1);
 				createCards("my_books", null, Mybooks_data.get(1).size());
 				setInVisible("mybooks");
@@ -257,7 +257,7 @@ public class HomeController implements Initializable {
 		 
 			}
 
-			title_label.setText("ßÊÈí");
+			title_label.setText("ÙƒØªØ¨ÙŠ");
 		}
 
 		else if (event.getSource() == about_btn) {
@@ -294,10 +294,10 @@ public class HomeController implements Initializable {
 				}
 
 				else if (back_list.get(last - 1).equals("mybooks")) {
-					title_label.setText("ßÊÈí");
+					title_label.setText("ÙƒØªØ¨ÙŠ");
 					Mybooks_data = RetrieveData.getMyBooksDB();
 
-					if (current_showType.equals("ÈØÇŞÇÊ")) {
+					if (current_showType.equals("Ø¨Ø­Ø«")) {
 						createCards("my_books", null, Mybooks_data.get(1).size());
 					} else {
 						createTabel("my_books", null, Mybooks_data.get(1).size());
@@ -306,7 +306,7 @@ public class HomeController implements Initializable {
 				}
 
 				else if (back_list.get(last - 1).equals("books")) {
-					if (current_showType.equals("ÈØÇŞÇÊ")) {
+					if (current_showType.equals("Ø¨Ø­Ø«")) {
 						createCards("book", back_list2.get(last - 1), back_list3.get(last - 1));
 					} else {
 						createTabel("book", back_list2.get(last - 1), back_list3.get(last - 1));
@@ -368,7 +368,7 @@ public class HomeController implements Initializable {
 		 
 		if (pane.equals("bookpage")) {
 
-			title_label.setText("ãÚáæãÇÊ ÇáßÊÇÈ");
+			title_label.setText("Ø¹Ù† Ø§Ù„ÙƒØªØ§Ø¨");
 			book_page.setVisible(true);
 			settings_pane.setVisible(false);
 			cards_scroll.setVisible(false);
@@ -379,7 +379,7 @@ public class HomeController implements Initializable {
 
 		else if (pane.equals("settings")) {
 
-			title_label.setText("ÇáÅÚÏÇÏÇÊ");
+			title_label.setText("Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª");
 			book_page.setVisible(false);
 			settings_pane.setVisible(true);
 			cards_scroll.setVisible(false);
@@ -390,7 +390,7 @@ public class HomeController implements Initializable {
 
 		else if (pane.equals("about")) {
 
-			title_label.setText("Úä ÇáÊØÈíŞ");
+			title_label.setText("Ø¹Ù† Ø§Ù„ØªØ·Ø¨ÙŠÙ‚");
 			book_page.setVisible(false);
 			settings_pane.setVisible(false);
 			cards_scroll.setVisible(false);
@@ -400,7 +400,7 @@ public class HomeController implements Initializable {
 
 		else if (pane.equals("categories")) {
 
-			title_label.setText("ÇáÊÕäíİÇÊ");
+			title_label.setText("Ø§Ù„ØªØµÙ†ÙŠÙØ§Øª");
 			book_page.setVisible(false);
 			settings_pane.setVisible(false);
 			cards_scroll.setVisible(true);
@@ -416,7 +416,7 @@ public class HomeController implements Initializable {
 
 			about_pane.setVisible(false);
 
-			if (current_showType.equals("ÈØÇŞÇÊ")) {
+			if (current_showType.equals("Ø¨Ø­Ø«")) {
 				cards_scroll.setVisible(true);
 				cards_scroll.toFront();
 
@@ -435,7 +435,7 @@ public class HomeController implements Initializable {
 
 			about_pane.setVisible(false);
 
-			if (current_showType.equals("ÈØÇŞÇÊ")) {
+			if (current_showType.equals("Ø¨Ø­Ø«")) {
 				cards_scroll.setVisible(true);
 				
 			} else {
@@ -447,13 +447,13 @@ public class HomeController implements Initializable {
 
 		else if (pane.equals("search")) {
 
-			title_label.setText("ÈÍË");
+			title_label.setText("Ø¨Ø­Ø«");
 			book_page.setVisible(false);
 			settings_pane.setVisible(false);
 
 			about_pane.setVisible(false);
 
-			if (current_showType.equals("ÈØÇŞÇÊ")) {
+			if (current_showType.equals("Ø¨Ø­Ø«")) {
 				cards_scroll.setVisible(true);
 				
 			} else {
@@ -473,7 +473,7 @@ public class HomeController implements Initializable {
 		if (number_of_cards == 0 && type != "category") {
 
 			Label no_cards_text = new Label();
-			no_cards_text.setText("ÚĞÑÇõ¡ åĞÇ ÇáŞÓã áÇ íÊæİÑ Úáì ßÊÈ");
+			no_cards_text.setText("ÃšÃÃ‘Ã‡ÃµÂ¡ Ã¥ÃÃ‡ Ã‡Ã¡ÃÃ“Ã£ Ã¡Ã‡ Ã­ÃŠÃ¦ÃÃ‘ ÃšÃ¡Ã¬ ÃŸÃŠÃˆ");
 			no_cards_text.setId("nobooks_id");
 			cards_pane.getChildren().add(no_cards_text);
 			cards_pane.setAlignment(Pos.TOP_CENTER);
@@ -501,7 +501,7 @@ public class HomeController implements Initializable {
 
 					Label label2 = new Label();
 					label2.setId("card" + i + "label" + 2);
-					label2.setText(categories_data.get(1).get(i) + " ßÊÇÈ");
+					label2.setText(categories_data.get(1).get(i) + " ÙƒØªØ§Ø¨");
 
 					setCardsFonts(label1, label2);
 
@@ -529,7 +529,7 @@ public class HomeController implements Initializable {
 						category_books_data = RetrieveData.getCategoryBooksDB(categories_data.get(2).get(temp_num));
 						title_label.setText(categories_data.get(0).get(temp_num));
 
-						if (current_showType.equals("ÈØÇŞÇÊ")) {
+						if (current_showType.equals("Ø¨Ø­Ø«")) {
 							createCards("book", categories_data.get(2).get(temp_num),
 									category_books_data.get(0).size());
 						} else {
@@ -559,7 +559,7 @@ public class HomeController implements Initializable {
 					Label label1 = new Label();
 					label1.setId("card" + i + "label" + 1);
 					if (category_books_data.get(0).get(i) == null) {
-						label1.setText("ÈÏæä ÇÓã");
+						label1.setText("ÃˆÃÃ¦Ã¤ Ã‡Ã“Ã£");
 					} else {
 						label1.setText(category_books_data.get(0).get(i));
 					}
@@ -568,7 +568,7 @@ public class HomeController implements Initializable {
 					label2.setId("card" + i + "label" + 2);
 
 					if (category_books_data.get(1).get(i) == null || category_books_data.get(1).get(i).equals(" ")) {
-						label2.setText("ÈÏæä ãÄáİ");
+						label2.setText("ÃˆÃÃ¦Ã¤ Ã£Ã„Ã¡Ã");
 					}
 
 					else {
@@ -627,7 +627,7 @@ public class HomeController implements Initializable {
 					Label label1 = new Label();
 					label1.setId("card" + i + "label" + 1);
 					if (Mybooks_data.get(2).get(i) == null) {
-						label1.setText("ÈÏæä ÇÓã");
+						label1.setText("ÃˆÃÃ¦Ã¤ Ã‡Ã“Ã£");
 					} else {
 						label1.setText(Mybooks_data.get(2).get(i));
 					}
@@ -636,7 +636,7 @@ public class HomeController implements Initializable {
 					label2.setId("card" + i + "label" + 2);
 
 					if (Mybooks_data.get(3).get(i) == null || Mybooks_data.get(3).get(i).equals(" ")) {
-						label2.setText("ÈÏæä ãÄáİ");
+						label2.setText("ÃˆÃÃ¦Ã¤ Ã£Ã„Ã¡Ã");
 					}
 
 					else {
@@ -697,7 +697,7 @@ public class HomeController implements Initializable {
 					Label label1 = new Label();
 					label1.setId("card" + i + "label" + 1);
 					if (seach_result.get(1).get(i) == null) {
-						label1.setText("ÈÏæä ÇÓã");
+						label1.setText("ÃˆÃÃ¦Ã¤ Ã‡Ã“Ã£");
 					} else {
 						label1.setText(seach_result.get(1).get(i));
 					}
@@ -706,7 +706,7 @@ public class HomeController implements Initializable {
 					label2.setId("card" + i + "label" + 2);
 
 					if (seach_result.get(2).get(i) == null || seach_result.get(2).get(i).equals(" ")) {
-						label2.setText("ÈÏæä ãÄáİ");
+						label2.setText("ÃˆÃÃ¦Ã¤ Ã£Ã„Ã¡Ã");
 					}
 
 					else {
@@ -764,13 +764,13 @@ public class HomeController implements Initializable {
 
 		if (RetrieveData.checkMyBooks(book_info.get(5), book_info.get(4))) {
 
-			addBook_btn.setText("ÅÒÇáÉ ãä ßÊÈí");
+			addBook_btn.setText("Ø¥Ø²Ø§Ù„Ø© Ù…Ù† ÙƒØªØ¨ÙŠ");
 			addBook_btn.setStyle("-fx-background-color: #FF4136");
 		}
 
 		else {
 
-			addBook_btn.setText("ÇÖİ Åáì ßÊÈí");
+			addBook_btn.setText("Ø§Ø¶Ù Ø¥Ù„Ù‰ ÙƒØªØ¨ÙŠ");
 			addBook_btn.setStyle("-fx-background-color: #007bff");
 		}
 
@@ -804,7 +804,7 @@ public class HomeController implements Initializable {
 
 			RetrieveData.addToMyBooks(book_info.get(5), book_info.get(4));
 
-			addBook_btn.setText("ÅÒÇáÉ ãä ßÊÈí");
+			addBook_btn.setText("Ø¥Ø²Ø§Ù„Ø© Ù…Ù† ÙƒØªØ¨ÙŠ");
 			addBook_btn.setStyle("-fx-background-color: #FF4500");
 
 		}
@@ -814,7 +814,7 @@ public class HomeController implements Initializable {
 
 			RetrieveData.removeFromeMyBooks(book_info.get(5), book_info.get(4));
 
-			addBook_btn.setText("ÇÖİ Åáì ßÊÈí");
+			addBook_btn.setText("Ø§Ø¶Ù Ø¥Ù„Ù‰ ÙƒØªØ¨ÙŠ");
 			addBook_btn.setStyle("-fx-background-color: #4169E1");
 		}
 
@@ -824,7 +824,7 @@ public class HomeController implements Initializable {
 	void select_folder_method(ActionEvent event) {
 
 		DirectoryChooser chooser = new DirectoryChooser();
-		chooser.setTitle("ÇÎÊÑ ãÌáÏ ÇáßÊÈ");
+		chooser.setTitle("Ã‡ÃÃŠÃ‘ Ã£ÃŒÃ¡Ã Ã‡Ã¡ÃŸÃŠÃˆ");
 		File selectedDirectory = chooser.showDialog(Main.primaryStage);
 
 		if (event.getSource() == select_folder_btn) {
@@ -843,7 +843,7 @@ public class HomeController implements Initializable {
 	void select_db_method(ActionEvent event) {
 
 		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("ÇÎÊÑ ŞÇÚÏÉ ÇáÈíÇäÇÊ");
+		fileChooser.setTitle("Ã‡ÃÃŠÃ‘ ÃÃ‡ÃšÃÃ‰ Ã‡Ã¡ÃˆÃ­Ã‡Ã¤Ã‡ÃŠ");
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Access File", "*.accdb"));
 
 		File selectedFile = fileChooser.showOpenDialog(Main.primaryStage);
@@ -875,9 +875,9 @@ public class HomeController implements Initializable {
 
 				error_dialog.setAlertType(AlertType.WARNING);
 
-				error_dialog.setTitle("ÎØÃ ÈÇáÊÍÏíË");
+				error_dialog.setTitle("ÃÃ˜Ãƒ ÃˆÃ‡Ã¡ÃŠÃÃÃ­Ã‹");
 				error_dialog.setHeight(200);
-				error_dialog.setContentText("ÇáÑÌÇÁ ÇÏÎÇá ÇáÈíÇäÇÊ ÈÔßá ÕÍíÍ");
+				error_dialog.setContentText("Ã‡Ã¡Ã‘ÃŒÃ‡Ã Ã‡ÃÃÃ‡Ã¡ Ã‡Ã¡ÃˆÃ­Ã‡Ã¤Ã‡ÃŠ ÃˆÃ”ÃŸÃ¡ Ã•ÃÃ­Ã");
 				// show the dialog
 				error_dialog.show();
 
@@ -903,9 +903,9 @@ public class HomeController implements Initializable {
 
 					error_dialog.setAlertType(AlertType.INFORMATION);
 
-					error_dialog.setTitle("Êã ÊÍÏíË ÇáÅÚÏÇÏÇÊ");
+					error_dialog.setTitle("ÃŠÃ£ ÃŠÃÃÃ­Ã‹ Ã‡Ã¡Ã…ÃšÃÃ‡ÃÃ‡ÃŠ");
 					error_dialog.setHeight(200);
-					error_dialog.setContentText("Êã ÊÍÏíË ÇáÅÚÏÇÏÇÊ ÈäÌÇÍ");
+					error_dialog.setContentText("ÃŠÃ£ ÃŠÃÃÃ­Ã‹ Ã‡Ã¡Ã…ÃšÃÃ‡ÃÃ‡ÃŠ ÃˆÃ¤ÃŒÃ‡Ã");
 					// show the dialog
 					error_dialog.show();
 
@@ -930,14 +930,14 @@ public class HomeController implements Initializable {
 
 			book_folder_directory = settings_data.get(1);
 
-			if (settings_data.get(0).equals("ÌÏæá")) {
+			if (settings_data.get(0).equals("ÃŒÃÃ¦Ã¡")) {
 				rd_table.setSelected(true);
-				current_showType = "ÌÏæá";
+				current_showType = "ÃŒÃÃ¦Ã¡";
 			}
 
 			else {
 				rd_cards.setSelected(true);
-				current_showType = "ÈØÇŞÇÊ";
+				current_showType = "Ø¨Ø­Ø«";
 			}
 		}
 
@@ -952,9 +952,9 @@ public class HomeController implements Initializable {
 		Alert error_dialog = new Alert(AlertType.NONE);
 		error_dialog.setAlertType(AlertType.WARNING);
 
-		error_dialog.setTitle("ÎØÃ ÈŞÇÚÏÉ ÇáÈíÇäÇÊ");
+		error_dialog.setTitle("ÃÃ˜Ãƒ ÃˆÃÃ‡ÃšÃÃ‰ Ã‡Ã¡ÃˆÃ­Ã‡Ã¤Ã‡ÃŠ");
 		error_dialog.setHeight(200);
-		error_dialog.setContentText("ÎØÃ ÈŞÇÚÏÉ ÇáÈíÇäÇÊ¡ ÇáÑÌÇÁ ÇÏÎÇá ŞÇÚÏÉ ÇáÈíÇäÇÊ ÇáÕÍíÍÉ Ãæ ÊÍÏíËåÇ");
+		error_dialog.setContentText("ÃÃ˜Ãƒ ÃˆÃÃ‡ÃšÃÃ‰ Ã‡Ã¡ÃˆÃ­Ã‡Ã¤Ã‡ÃŠÂ¡ Ã‡Ã¡Ã‘ÃŒÃ‡Ã Ã‡ÃÃÃ‡Ã¡ ÃÃ‡ÃšÃÃ‰ Ã‡Ã¡ÃˆÃ­Ã‡Ã¤Ã‡ÃŠ Ã‡Ã¡Ã•ÃÃ­ÃÃ‰ ÃƒÃ¦ ÃŠÃÃÃ­Ã‹Ã¥Ã‡");
 		// show the dialog
 		error_dialog.show();
 
@@ -990,9 +990,9 @@ public class HomeController implements Initializable {
 		TableView tabel_books = new TableView();
 		TableColumn col_num = new TableColumn("#");
 
-		TableColumn col_book_name = new TableColumn("ÇÓã ÇáßÊÇÈ");
+		TableColumn col_book_name = new TableColumn("Ø§Ø³Ù… Ø§Ù„ÙƒØªØ§Ø¨");
 
-		TableColumn col_author = new TableColumn("ÇÓã ÇáãÄáİ");
+		TableColumn col_author = new TableColumn("Ø§Ø³Ù… Ø§Ù„Ù…Ø¤Ù„Ù");
 		
 		// prepare the table
 		tabel_books.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
@@ -1001,7 +1001,7 @@ public class HomeController implements Initializable {
 		col_book_name.setPrefWidth(317.5999298095703);
 		col_author.setPrefWidth(285.60003662109375);
 		tabel_books.getColumns().addAll(col_num, col_book_name, col_author);
-		tabel_books.setPlaceholder(new Label("ÚĞÑÇõ¡ åĞÇ ÇáŞÓã áÇ íÊæİÑ Úáì ßÊÈ"));
+		tabel_books.setPlaceholder(new Label("ÃšÃÃ‘Ã‡ÃµÂ¡ Ã¥ÃÃ‡ Ã‡Ã¡ÃÃ“Ã£ Ã¡Ã‡ Ã­ÃŠÃ¦ÃÃ‘ ÃšÃ¡Ã¬ ÃŸÃŠÃˆ"));
 
 		if (type.equals("book")) {
 			title_label.setText(RetrieveData.getCategoryTitle(category));
@@ -1035,7 +1035,7 @@ public class HomeController implements Initializable {
 				String author = category_books_data.get(1).get(i);
 
 				if (name == null || name.equals(" ")) {
-					name = "ÈÏæä ÚäæÇä";
+					name = "Ø¨Ø¯ÙˆÙ† Ø¹Ù†ÙˆØ§Ù†";
 				}
 
 				data1.add(new BookTableData(i + 1, name, author));
@@ -1093,7 +1093,7 @@ public class HomeController implements Initializable {
 				String author = Mybooks_data.get(3).get(i);
 
 				if (name == null || name.equals(" ")) {
-					name = "ÈÏæä ÚäæÇä";
+					name = "Ø¨Ø¯ÙˆÙ† Ø¹Ù†ÙˆØ§Ù†";
 				}
 
 				data.add(new BookTableData(i + 1, name, author));
@@ -1145,7 +1145,7 @@ public class HomeController implements Initializable {
 				String author = seach_result.get(2).get(i);
 
 				if (name == null || name.equals(" ")) {
-					name = "ÈÏæä ÚäæÇä";
+					name = "Ø¨Ø¯ÙˆÙ† Ø¹Ù†ÙˆØ§Ù†";
 				}
 
 				data.add(new BookTableData(i + 1, name, author));
@@ -1192,23 +1192,23 @@ public class HomeController implements Initializable {
 
 		String text = "";
 		String selected_filter = "";
-		title_label.setText("ÈÍË");
+		title_label.setText("Ø¨Ø­Ø«");
 
 		if (filter != -1) {
 			if (filter == 1) {
-				selected_filter = "ÇÓã ÇáßÊÇÈ";
+				selected_filter = "Ø§Ø³Ù… Ø§Ù„ÙƒØªØ§Ø¨";
 			}
 
 			else if (filter == 2) {
-				selected_filter = "ÇÓã ÇáãÄáİ";
+				selected_filter = "Ø§Ø³Ù… Ø§Ù„Ù…Ø¤Ù„Ù";
 			}
 
 			else if (filter == 3) {
-				selected_filter = "ÊÍŞíŞ/ÅÚÏÇÏ";
+				selected_filter = "Ø§Ø³Ù… Ø§Ù„Ø¨Ø§Ø­Ø«";
 			}
 
 			else if (filter == 4) {
-				selected_filter = "ãÕÏÑ ÇáßÊÇÈ";
+				selected_filter = "Ø§Ø³Ù… Ø§Ù„Ù…ØµØ¯Ø±";
 			}
 
 		}
@@ -1229,11 +1229,11 @@ public class HomeController implements Initializable {
 			valid_text = false;
 		}
 
-		if (selected_filter.equals("ÇÓã ÇáßÊÇÈ") && valid_text) {
+		if (selected_filter.equals("Ø§Ø³Ù… Ø§Ù„ÙƒØªØ§Ø¨") && valid_text) {
 			seach_result = RetrieveData.getSearchedBook("book_name", text, categories_data.get(0).size(),
 					categories_data);
 
-			if (current_showType.equals("ÈØÇŞÇÊ")) {
+			if (current_showType.equals("Ø¨Ø­Ø«")) {
 				createCards("search", null, seach_result.get(0).size());
 				updateBackList("search", text, 1);
 				setInVisible("search");
@@ -1246,10 +1246,10 @@ public class HomeController implements Initializable {
 
 		}
 
-		else if (selected_filter.equals("ÇÓã ÇáãÄáİ") && valid_text) {
+		else if (selected_filter.equals("Ø§Ø³Ù… Ø§Ù„Ù…Ø¤Ù„Ù") && valid_text) {
 			seach_result = RetrieveData.getSearchedBook("author", text, categories_data.get(0).size(), categories_data);
 
-			if (current_showType.equals("ÈØÇŞÇÊ")) {
+			if (current_showType.equals("Ø¨Ø­Ø«")) {
 				createCards("search", null, seach_result.get(0).size());
 				updateBackList("search", text, 2);
 				setInVisible("search");
@@ -1262,11 +1262,11 @@ public class HomeController implements Initializable {
 
 		}
 
-		else if (selected_filter.equals("ÊÍŞíŞ/ÅÚÏÇÏ") && valid_text) {
+		else if (selected_filter.equals("Ø§Ø³Ù… Ø§Ù„Ø¨Ø§Ø­Ø«") && valid_text) {
 			seach_result = RetrieveData.getSearchedBook("investigator", text, categories_data.get(0).size(),
 					categories_data);
 
-			if (current_showType.equals("ÈØÇŞÇÊ")) {
+			if (current_showType.equals("Ø¨Ø­Ø«")) {
 				createCards("search", null, seach_result.get(0).size());
 				updateBackList("search", text, 3);
 				setInVisible("search");
@@ -1279,10 +1279,10 @@ public class HomeController implements Initializable {
 
 		}
 
-		else if (selected_filter.equals("ãÕÏÑ ÇáßÊÇÈ") && valid_text) {
+		else if (selected_filter.equals("Ø§Ø³Ù… Ø§Ù„Ù…ØµØ¯Ø±") && valid_text) {
 			seach_result = RetrieveData.getSearchedBook("source", text, categories_data.get(0).size(), categories_data);
 
-			if (current_showType.equals("ÈØÇŞÇÊ")) {
+			if (current_showType.equals("Ø¨Ø­Ø«")) {
 				createCards("search", null, seach_result.get(0).size());
 				updateBackList("search", text, 4);
 				setInVisible("search");
